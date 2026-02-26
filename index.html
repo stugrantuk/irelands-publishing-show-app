@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ireland's Publishing Show 2026</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <img src="images/ips-logo.png" alt="Ireland's Publishing Show" class="header-logo">
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h2>Countdown to the Show</h2>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">0</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">0</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">0</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">0</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Welcome</h2>
+      <p>Join us for Ireland's premier publishing event featuring industry experts, workshops, and networking opportunities.</p>
+      <p><strong>📍 Location:</strong> The Inn at Dromoland, Co. Clare<br>
+      <strong>📅 Dates:</strong> March 17-19, 2026<br>
+      <strong>🎟️ Registration:</strong> Opens at 9:00 AM both days</p>
+    </div>
+
+    <div class="card">
+      <h2>Lead Sponsor</h2>
+      <div style="text-align: center; padding: 20px;">
+        <img src="images/digital-authors-toolkit-square.png" alt="Digital Authors Toolkit" style="max-width: 200px; height: auto; margin-bottom: 15px;">
+        <h3 style="font-size: 20px; margin: 15px 0 10px 0; color: #333;">Digital Authors Toolkit</h3>
+        <p style="color: #666; margin-bottom: 20px;">Creating World Class websites and tools that help sells books</p>
+        <a href="https://digitalauthorstoolkit.com" target="_blank" class="button" style="display: inline-block; background: #124B09; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600;">🌐 Visit Website</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Stay Updated</h2>
+      <p>Sign up here for updates and news from Digital Authors Toolkit</p>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="https://www.digitalauthorstoolkit.com/ireland26-sign-up" target="_blank" class="button" style="display: inline-block; background: #124B09; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600;">Join Our Mailing List</a>
+      </div>
+    </div>  </div>
+
+  <div class="footer-credit">
+    App Created By Digital Authors Toolkit
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="active">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="schedule.html">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Schedule</span>
+    </a>
+    <a href="speakers.html">
+      <span class="nav-icon">🎤</span>
+      <span class="nav-label">Speakers</span>
+    </a>
+    <a href="vendors.html">
+      <span class="nav-icon">🏢</span>
+      <span class="nav-label">Vendors</span>
+    </a>
+    <a href="info.html">
+      <span class="nav-icon">ℹ️</span>
+      <span class="nav-label">Info</span>
+    </a>
+  </nav>
+
+  <script>
+    // Countdown timer
+    const eventDate = new Date('2026-03-18T09:00:00+00:00').getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      
+      if (distance < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

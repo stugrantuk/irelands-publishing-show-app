@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule - Ireland's Publishing Show 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .agenda-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .agenda-toggle {
+      background: #2d5016;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .agenda-toggle:active {
+      opacity: 0.8;
+    }
+    .session-item {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      position: relative;
+      scroll-margin-top: 80px;
+    }
+    .session-item.hidden {
+      display: none;
+    }
+    .heart-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .heart-icon.active {
+      color: #e74c3c;
+    }
+    .heart-icon.inactive {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="images/ips-logo.png" alt="Ireland's Publishing Show" class="header-logo">
+  </div>
+
+  <div class="container">
+    <div class="agenda-header">
+      <div>
+        <h2 style="margin: 0 0 8px 0;">📅 Schedule</h2>
+        <p style="margin: 0; font-size: 13px; color: #666;">Favourite the sessions with a heart you want to attend and then see your personal agenda here</p>
+      </div>
+      <button class="agenda-toggle" onclick="toggleMyAgenda()">
+        <span id="toggleText">Show My Agenda</span>
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>📅 Tuesday, March 17</h2>
+      
+      <div class="session-item" data-session="session-1">
+        <span class="heart-icon inactive" onclick="toggleSession('session-1')">♡</span>
+        <span class="session-time">18:00 - 20:00</span>
+        <h3>Opening Reception</h3>
+        <p>Welcome drinks and networking</p>
+        <p class="session-room">📍 Main Foyer</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📅 Wednesday, March 18 - Day 1</h2>
+      
+      <div class="session-item" data-session="session-2">
+        <span class="heart-icon inactive" onclick="toggleSession('session-2')">♡</span>
+        <span class="session-time">09:00 - 10:00</span>
+        <h3>Registration & Coffee</h3>
+        <p class="session-room">📍 Main Foyer</p>
+      </div>
+
+      <div class="session-item" id="sadie-kincaid" data-session="session-3">
+        <span class="heart-icon inactive" onclick="toggleSession('session-3')">♡</span>
+        <span class="session-time">10:00 - 10:45</span>
+        <h3>Opening Keynote: The Future of Publishing</h3>
+        <p><strong>Speaker:</strong> Sadie Kincaid</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">How to craft a spicy scene that will satisfy your readers 😉</p>
+        <p class="session-room">📍 Main Hall</p>
+      </div>
+
+      <div class="session-item" id="tammi-labrecque" data-session="session-4">
+        <span class="heart-icon inactive" onclick="toggleSession('session-4')">♡</span>
+        <span class="session-time">11:00 - 11:45</span>
+        <h3>Newsletter Marketing Strategies</h3>
+        <p><strong>Speaker:</strong> Tammi Labrecque</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Your newsletter shouldn't steal time from your writing — it should quietly work in the background for you. Learn which parts of an author newsletter are ideal for automation, from welcome sequences to reader magnets and backlist promotion.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="tj-green" data-session="session-5">
+        <span class="heart-icon inactive" onclick="toggleSession('session-5')">♡</span>
+        <span class="session-time">11:00 - 11:45</span>
+        <h3>Writing Fantasy Fiction</h3>
+        <p><strong>Speaker:</strong> TJ Green</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">This interactive session explores how branding applies to authors and series across all genres. Learn how consistent tone, themes, and visual identity create recognisable "worlds," and why distinctive author identity matters more than ever.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" id="steven-aitchison" data-session="session-6">
+        <span class="heart-icon inactive" onclick="toggleSession('session-6')">♡</span>
+        <span class="session-time">12:00 - 12:45</span>
+        <h3>Video Marketing for Authors</h3>
+        <p><strong>Speaker:</strong> Steven Aitchison</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Discover the video marketing strategy that drove £703,000 in book royalties. Steven breaks down 7 specific ad formats designed to give authors a ready-to-use blueprint for creating video content that captures attention and converts viewers into readers.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="tony-lee" data-session="session-7">
+        <span class="heart-icon inactive" onclick="toggleSession('session-7')">♡</span>
+        <span class="session-time">12:00 - 12:45</span>
+        <h3>Building a Writing Career</h3>
+        <p><strong>Speaker:</strong> Tony Lee</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Following his keynote speech at last year's conference, Tony Lee returns with a candid, example-led masterclass on story. Learn how working backwards from a fixed endpoint strengthens character and makes Chekhov's Gun work for you.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" data-session="session-8">
+        <span class="heart-icon inactive" onclick="toggleSession('session-8')">♡</span>
+        <span class="session-time">13:00 - 14:00</span>
+        <h3>Lunch Break</h3>
+        <p class="session-room">📍 Main Foyer</p>
+      </div>
+
+      <div class="session-item" id="chelle-honiker" data-session="session-9">
+        <span class="heart-icon inactive" onclick="toggleSession('session-9')">♡</span>
+        <span class="session-time">14:00 - 14:45</span>
+        <h3>Social Media for Authors</h3>
+        <p><strong>Speaker:</strong> Chelle Honiker</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">AI-Powered Social Media Automation: Build Your Content System in 60 Minutes</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="diana-xarissa" data-session="session-10">
+        <span class="heart-icon inactive" onclick="toggleSession('session-10')">♡</span>
+        <span class="session-time">14:00 - 14:45</span>
+        <h3>Full-Time Indie Author</h3>
+        <p><strong>Speaker:</strong> Diana Xarissa</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Let's talk about setting goals, using different tools to increase productivity, and some different ways you can get stuck and how to work through them. Diana shares what she's learned from her own experience over fourteen years as an indie author.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" id="lorna-sixsmith" data-session="session-11">
+        <span class="heart-icon inactive" onclick="toggleSession('session-11')">♡</span>
+        <span class="session-time">15:00 - 15:45</span>
+        <h3>Media Relations for Authors</h3>
+        <p><strong>Speaker:</strong> Lorna Sixsmith</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Being featured in newspapers or interviewed on radio or television is a huge stepping stone to getting your books into bookshops. This workshop will show you how to contact journalists, write a successful press release and prepare for interviews.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="lj-dix" data-session="session-12">
+        <span class="heart-icon inactive" onclick="toggleSession('session-12')">♡</span>
+        <span class="session-time">15:00 - 15:45</span>
+        <h3>Writing Career Development</h3>
+        <p><strong>Speaker:</strong> LJ Dix</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Developing a writing career - practical tips and strategies for building your author business.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" id="thomas-dean-donnelly" data-session="session-13">
+        <span class="heart-icon inactive" onclick="toggleSession('session-13')">♡</span>
+        <span class="session-time">16:00 - 16:45</span>
+        <h3>Hollywood Screenwriting</h3>
+        <p><strong>Speaker:</strong> Thomas Dean Donnelly</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Join T.D. Donnelly as he imparts the wisdom he's learned over thirty years as a professional Hollywood screenwriter. Learn what Hollywood is looking for from us, and how to strategize an approach to this most gatekept of creative industries.</p>
+        <p class="session-room">📍 Main Hall</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📅 Thursday, March 19 - Day 2</h2>
+      
+      <div class="session-item" data-session="session-14">
+        <span class="heart-icon inactive" onclick="toggleSession('session-14')">♡</span>
+        <span class="session-time">09:00 - 10:00</span>
+        <h3>Registration & Coffee</h3>
+        <p class="session-room">📍 Main Foyer</p>
+      </div>
+
+      <div class="session-item" id="james-blatch" data-session="session-15">
+        <span class="heart-icon inactive" onclick="toggleSession('session-15')">♡</span>
+        <span class="session-time">10:00 - 10:45</span>
+        <h3>Self Publishing Formula</h3>
+        <p><strong>Speaker:</strong> James Blatch</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">A Complete Framework for Translating Your Books Using AI, Without Losing Your Voice. Learn the systematic process that produces translations native readers actually enjoy, ones that preserve your voice, your pacing, and everything that made your book worth translating.</p>
+        <p class="session-room">📍 Main Hall</p>
+      </div>
+
+      <div class="session-item" id="steve-higgs" data-session="session-16">
+        <span class="heart-icon inactive" onclick="toggleSession('session-16')">♡</span>
+        <span class="session-time">11:00 - 11:45</span>
+        <h3>Amazon Advertising Strategies</h3>
+        <p><strong>Speaker:</strong> Steve Higgs</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Practical strategies for Amazon advertising success.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="kevin-mclaughlin" data-session="session-17">
+        <span class="heart-icon inactive" onclick="toggleSession('session-17')">♡</span>
+        <span class="session-time">11:00 - 11:45</span>
+        <h3>Writing Coaching</h3>
+        <p><strong>Speaker:</strong> Kevin McLaughlin</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">In this session you'll learn everything you need to build a full-time writing career in a year. It's a lot of work and not for the faint of heart - but you'll have a clear, repeatable path to get it done and achieve your dream.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" id="stuart-grant" data-session="session-18">
+        <span class="heart-icon inactive" onclick="toggleSession('session-18')">♡</span>
+        <span class="session-time">12:00 - 12:45</span>
+        <h3>AI Technology for Authors</h3>
+        <p><strong>Speaker:</strong> Stuart Grant</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Do you feel like your books are the best-kept secret on the internet? Join Stuart Grant for a fast-paced session on SEO to get found on Google, and GEO to get recommended by AI. This isn't theory—it's a practical roadmap for getting found, getting fans, and building the audience your books deserve.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="jonathan-brazee" data-session="session-19">
+        <span class="heart-icon inactive" onclick="toggleSession('session-19')">♡</span>
+        <span class="session-time">12:00 - 12:45</span>
+        <h3>Co-Writing Success</h3>
+        <p><strong>Speaker:</strong> Jonathan Brazee</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Co-writing strategies, pros and cons, and methods for successful collaboration.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" data-session="session-20">
+        <span class="heart-icon inactive" onclick="toggleSession('session-20')">♡</span>
+        <span class="session-time">13:00 - 14:00</span>
+        <h3>Lunch Break</h3>
+        <p class="session-room">📍 Main Foyer</p>
+      </div>
+
+      <div class="session-item" id="matthias-kadott" data-session="session-21">
+        <span class="heart-icon inactive" onclick="toggleSession('session-21')">♡</span>
+        <span class="session-time">14:00 - 14:45</span>
+        <h3>Anonymous Romance Writing</h3>
+        <p><strong>Speaker:</strong> Matthias Kadott</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">In an era of personality-driven social media, is it possible to build a publishing empire while remaining completely anonymous? Matthias reveals the strategy behind writing successful Romance novels as a male author using a secret identity, with real data on four different pen names.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="robin-bennett-freeburn" data-session="session-22">
+        <span class="heart-icon inactive" onclick="toggleSession('session-22')">♡</span>
+        <span class="session-time">14:00 - 14:45</span>
+        <h3>The Gifting Economy</h3>
+        <p><strong>Speaker:</strong> Robin Bennett Freeburn</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">The gifting market is enormous, predictable, and wildly under-exploited by authors. This session shows how fiction and non-fiction authors can make their books gift-worthy, emotionally compelling, and more profitable by understanding how gift-buyers think, buy, and repeat.</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" id="ben-richardson" data-session="session-23">
+        <span class="heart-icon inactive" onclick="toggleSession('session-23')">♡</span>
+        <span class="session-time">15:00 - 15:45</span>
+        <h3>Video Production for Authors</h3>
+        <p><strong>Speaker:</strong> Ben Richardson</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Video production tips and techniques for authors.</p>
+        <p class="session-room">📍 Room A</p>
+      </div>
+
+      <div class="session-item" id="suzy-k-quinn" data-session="session-24">
+        <span class="heart-icon inactive" onclick="toggleSession('session-24')">♡</span>
+        <span class="session-time">15:00 - 15:45</span>
+        <h3>Bestselling Romance Strategies</h3>
+        <p><strong>Speaker:</strong> Suzy K Quinn</p>
+        <p style="margin-top: 8px; color: #555; font-size: 14px; line-height: 1.5;">Suzy K Quinn shares character secrets and tips for bestselling books. How do you create characters that readers love, write rave reviews about and want to read again and again? It's not just luck or talent - there are formulas!</p>
+        <p class="session-room">📍 Room B</p>
+      </div>
+
+      <div class="session-item" data-session="session-25">
+        <span class="heart-icon inactive" onclick="toggleSession('session-25')">♡</span>
+        <span class="session-time">16:00 - 17:00</span>
+        <h3>Closing Keynote & Networking</h3>
+        <p class="session-room">📍 Main Hall</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-credit">
+    App Created By Digital Authors Toolkit
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="schedule.html" class="active">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Schedule</span>
+    </a>
+    <a href="speakers.html">
+      <span class="nav-icon">🎤</span>
+      <span class="nav-label">Speakers</span>
+    </a>
+    <a href="vendors.html">
+      <span class="nav-icon">🏢</span>
+      <span class="nav-label">Vendors</span>
+    </a>
+    <a href="info.html">
+      <span class="nav-icon">ℹ️</span>
+      <span class="nav-label">Info</span>
+    </a>
+  </nav>
+
+  <script>
+    // Load saved favorites from localStorage
+    function loadFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('myAgenda') || '[]');
+      favorites.forEach(sessionId => {
+        const sessionItem = document.querySelector(`[data-session="${sessionId}"]`);
+        if (sessionItem) {
+          const heart = sessionItem.querySelector('.heart-icon');
+          if (heart) {
+            heart.classList.remove('inactive');
+            heart.classList.add('active');
+            heart.textContent = '♥';
+          }
+        }
+      });
+    }
+
+    // Toggle session favorite
+    function toggleSession(sessionId) {
+      const favorites = JSON.parse(localStorage.getItem('myAgenda') || '[]');
+      const sessionItem = document.querySelector(`[data-session="${sessionId}"]`);
+      const heart = sessionItem.querySelector('.heart-icon');
+      
+      if (favorites.includes(sessionId)) {
+        // Remove from favorites
+        const index = favorites.indexOf(sessionId);
+        favorites.splice(index, 1);
+        heart.classList.remove('active');
+        heart.classList.add('inactive');
+        heart.textContent = '♡';
+      } else {
+        // Add to favorites
+        favorites.push(sessionId);
+        heart.classList.remove('inactive');
+        heart.classList.add('active');
+        heart.textContent = '♥';
+      }
+      
+      localStorage.setItem('myAgenda', JSON.stringify(favorites));
+    }
+
+    // Toggle My Agenda view
+    let showingAgenda = false;
+    function toggleMyAgenda() {
+      const favorites = JSON.parse(localStorage.getItem('myAgenda') || '[]');
+      const allSessions = document.querySelectorAll('.session-item');
+      const toggleText = document.getElementById('toggleText');
+      
+      showingAgenda = !showingAgenda;
+      
+      if (showingAgenda) {
+        // Show only favorites
+        allSessions.forEach(session => {
+          const sessionId = session.getAttribute('data-session');
+          if (!favorites.includes(sessionId)) {
+            session.classList.add('hidden');
+          }
+        });
+        toggleText.textContent = 'Show All Sessions';
+      } else {
+        // Show all sessions
+        allSessions.forEach(session => {
+          session.classList.remove('hidden');
+        });
+        toggleText.textContent = 'Show My Agenda';
+      }
+    }
+
+    // Load favorites on page load
+    loadFavorites();
+  </script>
+</body>
+</html>
