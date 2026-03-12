@@ -183,7 +183,7 @@ body {
   text-align: center;
   text-decoration: none;
   color: #888;
-  padding: 14px 6px;
+  padding: 14px 2px;
   transition: color 0.3s;
   display: flex;
   align-items: center;
@@ -207,7 +207,7 @@ body {
 }
 
 .nav-label {
-  font-size: 13px;
+  font-size: 12px;
   display: block;
   font-weight: 500;
 }
